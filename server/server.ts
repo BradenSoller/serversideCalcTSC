@@ -36,3 +36,22 @@ app.get('/calculations', (req:any, res:any) => {
   console.log('req.body: ', req.body);
   res.send(calculations);
 });
+
+app.post('/calculations', (req:any, res:any) => {
+  console.log('Post request recieved');
+  let newCalculation = req.body
+  console.log(newCalculation);
+  //puts data in array
+  calculations.push(newCalculation)
+
+//gets the last object property
+let newAnwser = calculations[calculations.length-1];
+
+//MATH!!!!!!
+newAnwser.result = orderOfOperations(newAnwser.numOne, newAnwser.numTwo, newAnwser.operator);
+
+console.log('expected result', newAnwser.result);
+console.log('calulation Arr', calculations);
+
+  res.sendStatus(201)
+});
