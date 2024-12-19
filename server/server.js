@@ -13,12 +13,13 @@ function orderOfOperations(numOne, numTwo, operator) {
     console.log('numTwo: ', numTwo);
     console.log('operation: ', operator);
     if (operator === "/")
-        return parseFloat(numOne / numTwo);
+        return Number(numOne) / Number(numTwo);
     else if (operator === '+')
-        return parseFloat(numOne + numTwo);
+        return Number(numOne) + Number(numTwo);
     else if (operator === "-")
-        return parseFloat(numOne - numTwo);
+        return Number(numOne) - Number(numTwo);
     else if (operator === "*")
-        return parseFloat(numOne * numTwo);
+        return Number(numOne) * Number(numTwo);
 }
+console.log(orderOfOperations(2, 2, "*"));
 //# sourceMappingURL=server.js.map

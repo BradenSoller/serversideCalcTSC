@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.static('server/public'));
 
 //array to store math
-let calculations = [];
+let calculations:any = [];
  
 //doing the math
 function orderOfOperations(numOne:number, numTwo:number, operator:string) {
@@ -29,3 +29,10 @@ function orderOfOperations(numOne:number, numTwo:number, operator:string) {
     return Number(numOne) * Number(numTwo)
 }
 
+console.log(orderOfOperations(2, 2, "*"));
+
+app.get('/calculations', (req:any, res:any) => {
+  console.log('GET request received!',calculations);
+  console.log('req.body: ', req.body);
+  res.send(calculations);
+});
